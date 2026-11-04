@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESKTOP.EXE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="desktop">
+
+        <!-- Desktop Header -->
+        <div class="topbar">
+            <div class="system-name">◈ DESKTOP.EXE</div>
+            <div class="system-status">
+                SYSTEM STATUS: <span>ONLINE</span>
+            </div>
+            <div id="clock">00:00</div>
+        </div>
+
+        <!-- Desktop Icons -->
+        <div class="desktop-icons">
+
+            <div class="desktop-icon" ondblclick="openWindow('computer')">
+                <div class="icon">🖥️</div>
+                <p>My Computer</p>
+            </div>
+
+            <div class="desktop-icon" ondblclick="openWindow('files')">
+                <div class="icon">📁</div>
+                <p>Files</p>
+            </div>
+
+            <div class="desktop-icon" ondblclick="openWindow('terminal')">
+                <div class="icon">💻</div>
+                <p>Terminal</p>
+            </div>
+
+            <div class="desktop-icon" ondblclick="openWindow('trash')">
+                <div class="icon">🗑️</div>
+                <p>Recycle Bin</p>
+            </div>
+
+        </div>
+
+        <!-- Welcome Message -->
+        <div class="welcome">
+            <h1>WELCOME BACK.</h1>
+            <p>USER SESSION RESTORED SUCCESSFULLY.</p>
+            <span>Something feels different today...</span>
+        </div>
+
+        <!-- Application Window -->
+        <div class="window" id="app-window">
+
+            <div class="window-header">
+                <span id="window-title">SYSTEM</span>
+                <button onclick="closeWindow()">✕</button>
+            </div>
+
+            <div class="window-content" id="window-content">
+                Select an application.
+            </div>
+
+        </div>
+
+        <!-- Taskbar -->
+        <div class="taskbar">
+            <button onclick="openWindow('computer')">◈ START</button>
+            <span>DESKTOP.EXE</span>
+            <span class="taskbar-right">USER: UNKNOWN</span>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

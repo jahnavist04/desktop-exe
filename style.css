@@ -1,0 +1,251 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080b12;
+    font-family: 'Share Tech Mono', monospace;
+    color: #d7e4ef;
+    overflow: hidden;
+}
+
+.desktop {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 45%, #152b36 0%, transparent 65%),
+        linear-gradient(135deg, #080b12, #101923, #090d15);
+}
+
+/* SCANLINES */
+
+.desktop::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    background: repeating-linear-gradient(
+        transparent 0px,
+        rgba(0, 0, 0, 0.12) 1px,
+        transparent 3px
+    );
+}
+
+/* TOP BAR */
+
+.topbar {
+    height: 42px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    background: rgba(5, 12, 19, 0.9);
+    border-bottom: 1px solid #294653;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.system-name {
+    color: #63f5cf;
+    font-weight: bold;
+}
+
+.system-status {
+    color: #8498a6;
+}
+
+.system-status span {
+    color: #63f5cf;
+}
+
+#clock {
+    color: #63f5cf;
+}
+
+/* DESKTOP ICONS */
+
+.desktop-icons {
+    position: absolute;
+    top: 75px;
+    left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+}
+
+.desktop-icon {
+    width: 90px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 5px;
+    transition: 0.2s;
+}
+
+.desktop-icon:hover {
+    background: rgba(99, 245, 207, 0.09);
+    outline: 1px solid rgba(99, 245, 207, 0.3);
+}
+
+.icon {
+    font-size: 30px;
+    margin-bottom: 7px;
+    filter: grayscale(0.3);
+}
+
+.desktop-icon p {
+    font-size: 11px;
+    color: #c3d2dc;
+}
+
+/* WELCOME MESSAGE */
+
+.welcome {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+}
+
+.welcome h1 {
+    font-family: 'VT323', monospace;
+    font-size: clamp(48px, 8vw, 85px);
+    letter-spacing: 8px;
+    color: #63f5cf;
+    text-shadow: 0 0 15px rgba(99, 245, 207, 0.5);
+}
+
+.welcome p {
+    margin-top: 15px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #a5bbc8;
+}
+
+.welcome span {
+    display: block;
+    margin-top: 25px;
+    font-size: 12px;
+    color: #718b98;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* APPLICATION WINDOW */
+
+.window {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(500px, 85vw);
+    min-height: 220px;
+    background: #0c151d;
+    border: 1px solid #63f5cf;
+    box-shadow: 0 0 30px rgba(99, 245, 207, 0.12);
+    z-index: 5;
+}
+
+.window-header {
+    height: 38px;
+    padding: 0 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #132630;
+    color: #63f5cf;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.window-header button {
+    background: transparent;
+    color: #ff7777;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.window-content {
+    padding: 25px;
+    line-height: 2;
+    font-size: 13px;
+    color: #b9d2d9;
+    min-height: 180px;
+}
+
+/* TASKBAR */
+
+.taskbar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 48px;
+    background: rgba(5, 12, 19, 0.95);
+    border-top: 1px solid #294653;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    gap: 20px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    z-index: 11;
+}
+
+.taskbar button {
+    background: #122b32;
+    color: #63f5cf;
+    border: 1px solid #396c68;
+    padding: 8px 16px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.taskbar button:hover {
+    background: #1d4147;
+}
+
+.taskbar-right {
+    margin-left: auto;
+    color: #63f5cf;
+}
+
+/* SMALL SCREENS */
+
+@media (max-width: 600px) {
+    .topbar {
+        padding: 0 10px;
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .desktop-icons {
+        left: 5px;
+        top: 60px;
+        gap: 10px;
+    }
+
+    .welcome h1 {
+        letter-spacing: 3px;
+    }
+
+    .welcome p {
+        font-size: 9px;
+    }
+}

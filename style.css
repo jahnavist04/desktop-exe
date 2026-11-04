@@ -249,3 +249,13 @@ body {
         font-size: 9px;
     }
 }
+
+.file {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.file:hover {
+    color: #63f5cf;
+    background: rgba(99, 245, 207, 0.08);
+}
